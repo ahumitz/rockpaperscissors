@@ -1,0 +1,33 @@
+<script>
+    // R/P/S random generation
+    const rps = [
+        "rock", 
+        "paper", 
+        "scissors"
+    ];
+
+    function computerPlay() {
+       return rps[~~(Math.random() * rps.length)]
+    }
+
+    // Playing 1 round of R/P/S
+
+    function playRound(playerSelection, computerSelection) {
+
+        if ((playerSelection == 'scissors' && computerSelection == 'paper') 
+                    || (playerSelection == 'rock' && computerSelection == 'scissors')
+                    || (playerSelection == 'paper' && computerSelection == 'rock')) {
+            alert ("You win! " + playerSelection + " beats " + computerSelection);
+        } 
+        else if (computerSelection == playerSelection) {
+            alert ("It\'s a tie! You both chose " + playerSelection)
+        } 
+        else {
+            alert ("You lose! " + computerSelection + " beats " + playerSelection)
+        }
+}
+
+const playerSelection = prompt("Please choose rock, paper, or scissors", "");
+const computerSelection = computerPlay();
+console.log(playRound(playerSelection, computerSelection));
+</script>
