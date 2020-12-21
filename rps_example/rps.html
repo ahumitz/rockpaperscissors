@@ -10,7 +10,26 @@
        return rps[~~(Math.random() * rps.length)]
     }
 
-    // Playing 1 round of R/P/S
+// Best of 5 game of RPS
+const playerSelection = prompt("Please choose rock, paper, or scissors", "");
+const computerSelection = computerPlay();
+
+function game() {
+    let computerScore = 0;
+    let playerScore = 0;
+    for (let i=0; i<5; i++) {
+    }
+    console.log(declareWinner());
+
+    function declareWinner () {
+        if (playerScore == computerScore) {
+            alert (playerScore + " " + computerScore + " " + "Tie Game!");
+            return (playerScore + " " + computerScore + " " + "Tie Game!");
+        } else if (playerScore > computerScore) {
+            alert (playerScore + " " + computerScore + " " + "You Win!");
+            return (playerScore + " " + computerScore + " " + "You Win!");
+        }
+    }
 
     function playRound(playerSelection, computerSelection) {
 
@@ -18,16 +37,19 @@
                     || (playerSelection == 'rock' && computerSelection == 'scissors')
                     || (playerSelection == 'paper' && computerSelection == 'rock')) {
             alert ("You win! " + playerSelection + " beats " + computerSelection);
+            return (playerScore++)
         } 
         else if (computerSelection == playerSelection) {
             alert ("It\'s a tie! You both chose " + playerSelection)
         } 
         else {
             alert ("You lose! " + computerSelection + " beats " + playerSelection)
+            return (computerScore++)
         }
 }
 
-const playerSelection = prompt("Please choose rock, paper, or scissors", "");
-const computerSelection = computerPlay();
+
 console.log(playRound(playerSelection, computerSelection));
+
+}
 </script>
